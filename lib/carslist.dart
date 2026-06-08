@@ -79,7 +79,9 @@ class _CarsListState extends State<CarsList> {
       );
     }
 
-    return ListView.builder(
+    return RefreshIndicator(
+      onRefresh: _fetchCars, 
+      child: ListView.builder(
       itemCount: _cars!.length,
       itemBuilder: (context, index) {
         Car c = _cars![index];
@@ -92,10 +94,11 @@ class _CarsListState extends State<CarsList> {
             Navigator.push(
               context, 
               MaterialPageRoute(builder: (context) => PathsList(onLogout: widget.onLogout, session: widget.session, car: c))
-            );
-          },
-        );
-      }
+              );
+            },
+          );
+        }
+      )
     );
   }
 }

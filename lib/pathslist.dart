@@ -73,7 +73,7 @@ class _PathsListState extends State<PathsList> {
         child: CircularProgressIndicator(),
       );
     } else if (_paths!.isEmpty) {
-      return const Center(
+      bodyWidget = Center(
         child: Text("Nenhum caminho encontrado para este carro"),
       );
     } else {

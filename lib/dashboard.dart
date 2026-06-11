@@ -2,6 +2,7 @@ import 'package:fleettracker_admin_app/admin/carslist.dart';
 import 'package:fleettracker_admin_app/fieldAgent/registercarpage.dart';
 import 'package:fleettracker_admin_app/usersession.dart';
 import 'package:flutter/material.dart';
+import 'customdrawer.dart';
 
 class DashBoard extends StatelessWidget {
   final UserSession session;
@@ -42,53 +43,7 @@ class DashBoard extends StatelessWidget {
         ],
       ),
       backgroundColor: Color.fromARGB(255, 20, 30, 39),
-      drawer: Drawer(
-        backgroundColor: Color.fromARGB(255, 20, 30, 39),
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blueAccent),
-              child: Text(
-                "Menu",
-                style: TextStyle(color: Colors.white, fontSize: 24),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.directions_car, color: Colors.white),
-              title: Text(
-                "Cadastrar Veículo",
-                style: TextStyle(color: Colors.white),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        RegisterCarPage(session: session, onLogout: onLogout),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.map, color: Colors.white),
-              title: Text(
-                "Veículos Cadastrados",
-                style: TextStyle(color: Colors.white),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        CarsList(session: session, onLogout: onLogout),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: CustomDrawer(session: session, onLogout: onLogout),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

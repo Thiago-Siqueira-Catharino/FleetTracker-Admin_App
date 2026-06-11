@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:fleettracker_admin_app/admin/classes.dart';
 import 'package:fleettracker_admin_app/admin/pathslist.dart';
+import 'package:fleettracker_admin_app/customdrawer.dart';
 import 'package:fleettracker_admin_app/usersession.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -90,6 +91,7 @@ class _CarsListState extends State<CarsList> {
           ),
         ],
       ),
+      drawer: CustomDrawer(session: widget.session, onLogout: widget.onLogout),
       body: RefreshIndicator(
         onRefresh: _fetchCars,
         child: ListView.separated(

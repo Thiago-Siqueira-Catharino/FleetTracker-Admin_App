@@ -4,7 +4,7 @@ import 'package:fleettracker_admin_app/usersession.dart';
 import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
 import 'package:nfc_manager/nfc_manager_android.dart';
-import 'package:nfc_manager/nfc_manager_ios.dart';
+import 'package:fleettracker_admin_app/customdrawer.dart';
 import 'package:http/http.dart' as http;
 
 class RegisterCarPage extends StatefulWidget {
@@ -121,6 +121,7 @@ class _RegisterCarPageState extends State<RegisterCarPage> {
           ),
         ],
       ),
+      drawer: CustomDrawer(session: widget.session, onLogout: widget.onLogout),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

@@ -64,15 +64,15 @@ class _MainAppState extends State<MainApp> {
   Widget build(BuildContext content) {
     if (_checkingSession) {
       return const MaterialApp(
-        home: Scaffold(
-          body: Center(child: CircularProgressIndicator())
-        )
+        home: Scaffold(body: Center(child: CircularProgressIndicator())),
       );
     }
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: _session != null ? HomePage(session: _session!, onLogout: _onLogout) : LoginPage(onLoginSuccess: _onLoginSuccess),
+      home: _session != null
+          ? HomePage(session: _session!, onLogout: _onLogout)
+          : LoginPage(onLoginSuccess: _onLoginSuccess),
     );
   }
 }
